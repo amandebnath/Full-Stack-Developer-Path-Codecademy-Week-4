@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman Debnath — Personal Bio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .verge-gradient {
+      background: linear-gradient(135deg, #f72585 0%, #7209b7 50%, #3a0ca3 100%);
+    }
+    
+    .verge-text-gradient {
+      background: linear-gradient(135deg, #f72585 0%, #7209b7 50%, #3a0ca3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(247, 37, 133, 0.2);
+    }
+    
+    .skill-bar-fill {
+      transition: width 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 text-gray-100 min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-purple-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <i class="fa-solid fa-code text-2xl text-pink-500"></i>
+          <span class="text-xl font-black tracking-tight text-white group-hover:text-pink-500 transition-colors">
+            AMAN DEBNATH
+          </span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="About">About</span>
+            <span data-de="Über mich" class="hidden">Über mich</span>
+          </a>
+          <a href="#skills" class="nav-link text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Skills">Skills</span>
+            <span data-de="Fähigkeiten" class="hidden">Fähigkeiten</span>
+          </a>
+          <a href="#hobbies" class="nav-link text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Hobbies">Hobbies</span>
+            <span data-de="Hobbys" class="hidden">Hobbys</span>
+          </a>
+          <a href="#projects" class="nav-link text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Projects">Projects</span>
+            <span data-de="Projekte" class="hidden">Projekte</span>
+          </a>
+          <a href="#contact" class="nav-link text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Contact">Contact</span>
+            <span data-de="Kontakt" class="hidden">Kontakt</span>
+          </a>
+          
+          <!-- Language Switcher -->
+          <button id="langToggle" class="px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-sm font-bold uppercase tracking-wider transition-all">
+            DE
+          </button>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden text-white">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-4">
+          <a href="#about" class="text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="About">About</span>
+            <span data-de="Über mich" class="hidden">Über mich</span>
+          </a>
+          <a href="#skills" class="text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Skills">Skills</span>
+            <span data-de="Fähigkeiten" class="hidden">Fähigkeiten</span>
+          </a>
+          <a href="#hobbies" class="text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Hobbies">Hobbies</span>
+            <span data-de="Hobbys" class="hidden">Hobbys</span>
+          </a>
+          <a href="#projects" class="text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Projects">Projects</span>
+            <span data-de="Projekte" class="hidden">Projekte</span>
+          </a>
+          <a href="#contact" class="text-sm font-semibold text-gray-300 hover:text-pink-500 transition-colors uppercase tracking-wider">
+            <span data-en="Contact">Contact</span>
+            <span data-de="Kontakt" class="hidden">Kontakt</span>
+          </a>
+          <button id="langToggleMobile" class="px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-bold uppercase tracking-wider w-full">
+            DE
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- HERO SECTION -->
+    <section id="about" class="grid lg:grid-cols-3 gap-8 mb-16">
+      <!-- Profile Card -->
+      <div class="lg:col-span-1">
+        <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 text-center">
+          <img src="./assets/photo2.jpg" 
+               alt="Aman Debnath" 
+               class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-pink-500/30 object-cover shadow-2xl shadow-pink-500/20"
+               onerror="this.onerror=null; this.src='https://placehold.co/300x300?text=Profile+Photo';">
+          
+          <h1 class="text-3xl font-black text-white mb-2 tracking-tight">AMAN DEBNATH</h1>
+          <p class="text-gray-400 font-semibold mb-4 uppercase text-sm tracking-wider">
+            <span data-en="Full Stack Engineer">Full Stack Engineer</span>
+            <span data-de="Full Stack Entwickler" class="hidden">Full Stack Entwickler</span>
+          </p>
+          
+          <div class="h-1 w-20 verge-gradient mx-auto mb-6 rounded-full"></div>
+          
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            <span data-en="Mechanical Engineer turned Full Stack Developer. I love solving problems, building web apps, and learning modern tech stacks. Currently focused on JavaScript, backend APIs and cloud-ready projects.">
+              Mechanical Engineer turned Full Stack Developer. I love solving problems, building web apps, and learning modern tech stacks. Currently focused on JavaScript, backend APIs and cloud-ready projects.
+            </span>
+            <span data-de="Maschinenbauingenieur, der zum Full Stack Developer wurde. Ich liebe es, Probleme zu lösen, Web-Apps zu entwickeln und moderne Tech-Stacks zu lernen. Derzeit konzentriere ich mich auf JavaScript, Backend-APIs und Cloud-Projekte." class="hidden">
+              Maschinenbauingenieur, der zum Full Stack Developer wurde. Ich liebe es, Probleme zu lösen, Web-Apps zu entwickeln und moderne Tech-Stacks zu lernen. Derzeit konzentriere ich mich auf JavaScript, Backend-APIs und Cloud-Projekte.
+            </span>
+          </p>
+          
+          <!-- Social Links -->
+          <div class="flex justify-center gap-3">
+            <a href="mailto:amandebnath66@gmail.com" 
+               class="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-pink-500/20 border border-slate-700 hover:border-pink-500 rounded-lg transition-all text-sm font-medium">
+              <i class="fa-regular fa-envelope"></i>
+              <span class="hidden sm:inline">Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/aman-debnath-665528161/" 
+               target="_blank"
+               class="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-pink-500/20 border border-slate-700 hover:border-pink-500 rounded-lg transition-all text-sm font-medium">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span class="hidden sm:inline">LinkedIn</span>
+            </a>
+            <a href="https://github.com/amandebnath" 
+               target="_blank"
+               class="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-pink-500/20 border border-slate-700 hover:border-pink-500 rounded-lg transition-all text-sm font-medium">
+              <i class="fa-brands fa-github"></i>
+              <span class="hidden sm:inline">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- About Content -->
+      <div class="lg:col-span-2">
+        <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 h-full">
+          <h2 class="text-3xl font-black mb-6 verge-text-gradient uppercase tracking-tight">
+            <span data-en="About Me">About Me</span>
+            <span data-de="Über Mich" class="hidden">Über Mich</span>
+          </h2>
+          
+          <p class="text-gray-300 leading-relaxed mb-4 text-lg">
+            <span data-en="I am a Mechanical Engineer transitioning into Full Stack Development, driven by a passion for building impactful digital solutions. With a strong foundation in problem-solving and critical thinking, I bring an analytical mindset from engineering into software development.">
+              I am a Mechanical Engineer transitioning into Full Stack Development, driven by a passion for building impactful digital solutions. With a strong foundation in problem-solving and critical thinking, I bring an analytical mindset from engineering into software development.
+            </span>
+            <span data-de="Ich bin ein Maschinenbauingenieur, der sich zum Full Stack Developer weiterentwickelt, angetrieben von der Leidenschaft, wirkungsvolle digitale Lösungen zu schaffen. Mit einer starken Grundlage in Problemlösung und kritischem Denken bringe ich eine analytische Denkweise aus dem Ingenieurwesen in die Softwareentwicklung ein." class="hidden">
+              Ich bin ein Maschinenbauingenieur, der sich zum Full Stack Developer weiterentwickelt, angetrieben von der Leidenschaft, wirkungsvolle digitale Lösungen zu schaffen. Mit einer starken Grundlage in Problemlösung und kritischem Denken bringe ich eine analytische Denkweise aus dem Ingenieurwesen in die Softwareentwicklung ein.
+            </span>
+          </p>
+          
+          <p class="text-gray-300 leading-relaxed mb-8 text-lg">
+            <span data-en="I enjoy tackling complex challenges, breaking them into simple solutions, and creating user-friendly applications. Currently, I am honing my skills in full stack development and preparing to contribute effectively in the software engineering space.">
+              I enjoy tackling complex challenges, breaking them into simple solutions, and creating user-friendly applications. Currently, I am honing my skills in full stack development and preparing to contribute effectively in the software engineering space.
+            </span>
+            <span data-de="Ich liebe es, komplexe Herausforderungen anzugehen, sie in einfache Lösungen zu zerlegen und benutzerfreundliche Anwendungen zu erstellen. Derzeit verfeinere ich meine Fähigkeiten in der Full-Stack-Entwicklung und bereite mich darauf vor, effektiv im Bereich der Softwareentwicklung beizutragen." class="hidden">
+              Ich liebe es, komplexe Herausforderungen anzugehen, sie in einfache Lösungen zu zerlegen und benutzerfreundliche Anwendungen zu erstellen. Derzeit verfeinere ich meine Fähigkeiten in der Full-Stack-Entwicklung und bereite mich darauf vor, effektiv im Bereich der Softwareentwicklung beizutragen.
+            </span>
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" 
+               class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all font-semibold text-sm uppercase tracking-wider">
+              <i class="fa-solid fa-box-open text-pink-500"></i>
+              <span data-en="View Projects">View Projects</span>
+              <span data-de="Projekte ansehen" class="hidden">Projekte ansehen</span>
+            </a>
+            <a href="#contact" 
+               class="inline-flex items-center gap-2 px-6 py-3 verge-gradient hover:opacity-90 rounded-lg transition-all font-bold text-sm uppercase tracking-wider shadow-lg shadow-pink-500/30">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span data-en="Contact Me">Contact Me</span>
+              <span data-de="Kontaktieren" class="hidden">Kontaktieren</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="grid lg:grid-cols-2 gap-8 mb-16">
+      <!-- Technical Skills -->
+      <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <h3 class="text-2xl font-black mb-6 text-white uppercase tracking-tight">
+          <span data-en="Technical Skills">Technical Skills</span>
+          <span data-de="Technische Fähigkeiten" class="hidden">Technische Fähigkeiten</span>
+        </h3>
+        
+        <!-- JavaScript -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-300 font-semibold text-sm">JavaScript</span>
+            <span class="text-pink-500 font-bold text-sm">15%</span>
+          </div>
+          <div class="h-3 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full verge-gradient skill-bar-fill" style="width: 15%"></div>
+          </div>
+        </div>
+        
+        <!-- HTML & CSS -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-300 font-semibold text-sm">HTML &amp; CSS</span>
+            <span class="text-pink-500 font-bold text-sm">75%</span>
+          </div>
+          <div class="h-3 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full verge-gradient skill-bar-fill" style="width: 75%"></div>
+          </div>
+        </div>
+        
+        <!-- Python -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-300 font-semibold text-sm">Python</span>
+            <span class="text-pink-500 font-bold text-sm">35%</span>
+          </div>
+          <div class="h-3 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full verge-gradient skill-bar-fill" style="width: 35%"></div>
+          </div>
+        </div>
+        
+        <!-- SQL -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-300 font-semibold text-sm">SQL</span>
+            <span class="text-pink-500 font-bold text-sm">20%</span>
+          </div>
+          <div class="h-3 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full verge-gradient skill-bar-fill" style="width: 20%"></div>
+          </div>
+        </div>
+        
+        <!-- Git -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-300 font-semibold text-sm">Git &amp; GitHub</span>
+            <span class="text-pink-500 font-bold text-sm">60%</span>
+          </div>
+          <div class="h-3 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full verge-gradient skill-bar-fill" style="width: 60%"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Experience & Tools -->
+      <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <h3 class="text-2xl font-black mb-6 text-white uppercase tracking-tight">
+          <span data-en="Experience & Tools">Experience & Tools</span>
+          <span data-de="Erfahrung & Werkzeuge" class="hidden">Erfahrung & Werkzeuge</span>
+        </h3>
+        
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-pink-500 mt-1"></i>
+            <span class="text-gray-300">
+              <span data-en="Building responsive web apps">Building responsive web apps</span>
+              <span data-de="Erstellen responsiver Web-Apps" class="hidden">Erstellen responsiver Web-Apps</span>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-pink-500 mt-1"></i>
+            <span class="text-gray-300">
+              <span data-en="REST APIs & backend design">REST APIs & backend design</span>
+              <span data-de="REST-APIs & Backend-Design" class="hidden">REST-APIs & Backend-Design</span>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-pink-500 mt-1"></i>
+            <span class="text-gray-300">
+              <span data-en="SQL & database fundamentals">SQL & database fundamentals</span>
+              <span data-de="SQL & Datenbank-Grundlagen" class="hidden">SQL & Datenbank-Grundlagen</span>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-pink-500 mt-1"></i>
+            <span class="text-gray-300">
+              <span data-en="Version control with Git">Version control with Git</span>
+              <span data-de="Versionskontrolle mit Git" class="hidden">Versionskontrolle mit Git</span>
+            </span>
+          </li>
+        </ul>
+        
+        <h4 class="text-lg font-bold mb-3 text-white uppercase tracking-wide">
+          <span data-en="Quick Links">Quick Links</span>
+          <span data-de="Schnellzugriff" class="hidden">Schnellzugriff</span>
+        </h4>
+        <a href="./assets/Aman_Debnath_Resume.pdf" 
+           target="_blank"
+           class="inline-flex items-center gap-2 text-pink-500 hover:text-pink-400 font-semibold transition-colors">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span data-en="Resume (PDF)">Resume (PDF)</span>
+          <span data-de="Lebenslauf (PDF)" class="hidden">Lebenslauf (PDF)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- HOBBIES SECTION -->
+    <section id="hobbies" class="mb-16">
+      <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <h3 class="text-3xl font-black mb-8 verge-text-gradient uppercase tracking-tight text-center">
+          <span data-en="Hobbies & Interests">Hobbies & Interests</span>
+          <span data-de="Hobbys & Interessen" class="hidden">Hobbys & Interessen</span>
+        </h3>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Hobby 1 -->
+          <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6 hover:border-pink-500/50 transition-all text-center">
+            <i class="fa-solid fa-code text-4xl text-pink-500 mb-4"></i>
+            <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-wider">
+              <span data-en="Coding">Coding</span>
+              <span data-de="Programmieren" class="hidden">Programmieren</span>
+            </h4>
+            <p class="text-gray-400 text-sm">
+              <span data-en="Building side projects and learning new frameworks">Building side projects and learning new frameworks</span>
+              <span data-de="Nebenprojekte entwickeln und neue Frameworks lernen" class="hidden">Nebenprojekte entwickeln und neue Frameworks lernen</span>
+            </p>
+          </div>
+          
+          <!-- Hobby 2 -->
+          <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6 hover:border-pink-500/50 transition-all text-center">
+            <i class="fa-solid fa-book text-4xl text-purple-500 mb-4"></i>
+            <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-wider">
+              <span data-en="Reading">Reading</span>
+              <span data-de="Lesen" class="hidden">Lesen</span>
+            </h4>
+            <p class="text-gray-400 text-sm">
+              <span data-en="Tech blogs, sci-fi novels, and engineering articles">Tech blogs, sci-fi novels, and engineering articles</span>
+              <span data-de="Tech-Blogs, Sci-Fi-Romane und Ingenieur-Artikel" class="hidden">Tech-Blogs, Sci-Fi-Romane und Ingenieur-Artikel</span>
+            </p>
+          </div>
+          
+          <!-- Hobby 3 -->
+          <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6 hover:border-pink-500/50 transition-all text-center">
+            <i class="fa-solid fa-dumbbell text-4xl text-pink-500 mb-4"></i>
+            <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-wider">
+              <span data-en="Fitness">Fitness</span>
+              <span data-de="Fitness" class="hidden">Fitness</span>
+            </h4>
+            <p class="text-gray-400 text-sm">
+              <span data-en="Staying active with gym workouts and outdoor activities">Staying active with gym workouts and outdoor activities</span>
+              <span data-de="Aktiv bleiben mit Fitness-Training und Outdoor-Aktivitäten" class="hidden">Aktiv bleiben mit Fitness-Training und Outdoor-Aktivitäten</span>
+            </p>
+          </div>
+          
+          <!-- Hobby 4 -->
+          <div class="bg-slate-800/50 border border-purple-500/10 rounded-xl p-6 hover:border-pink-500/50 transition-all text-center">
+            <i class="fa-solid fa-music text-4xl text-purple-500 mb-4"></i>
+            <h4 class="text-white font-bold mb-2 uppercase text-sm tracking-wider">
+              <span data-en="Music">Music</span>
+              <span data-de="Musik" class="hidden">Musik</span>
+            </h4>
+            <p class="text-gray-400 text-sm">
+              <span data-en="Exploring different genres and discovering new artists">Exploring different genres and discovering new artists</span>
+              <span data-de="Verschiedene Genres erkunden und neue Künstler entdecken" class="hidden">Verschiedene Genres erkunden und neue Künstler entdecken</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="mb-16">
+      <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <div class="flex justify-between items-center mb-8">
+          <h3 class="text-3xl font-black verge-text-gradient uppercase tracking-tight">
+            <span data-en="Selected Projects">Selected Projects</span>
+            <span data-de="Ausgewählte Projekte" class="hidden">Ausgewählte Projekte</span>
+          </h3>
+          <div class="flex gap-2">
+            <button id="prevProject" class="w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-pink-500 border border-slate-700 rounded-lg transition-all">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextProject" class="w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-pink-500 border border-slate-700 rounded-lg transition-all">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div id="projectsContainer" class="relative overflow-hidden">
+          <!-- Project 1 -->
+          <div class="project-slide grid lg:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-800/50 rounded-xl overflow-hidden border border-purple-500/10">
+              <img src="https://placehold.co/800x400?text=Project+1" 
+                   alt="Project 1" 
+                   class="w-full h-64 object-cover">
+            </div>
+            <div>
+              <h4 class="text-2xl font-bold text-white mb-3 uppercase tracking-tight">
+                <span data-en="Project 1 — Inventory Manager">Project 1 — Inventory Manager</span>
+                <span data-de="Projekt 1 — Bestandsverwaltung" class="hidden">Projekt 1 — Bestandsverwaltung</span>
+              </h4>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                <span data-en="A CRUD application built with Node.js and Express. Implements RESTful APIs, authentication, and a responsive frontend.">
+                  A CRUD application built with Node.js and Express. Implements RESTful APIs, authentication, and a responsive frontend.
+                </span>
+                <span data-de="Eine CRUD-Anwendung mit Node.js und Express. Implementiert RESTful-APIs, Authentifizierung und ein responsives Frontend." class="hidden">
+                  Eine CRUD-Anwendung mit Node.js und Express. Implementiert RESTful-APIs, Authentifizierung und ein responsives Frontend.
+                </span>
+              </p>
+              <p class="text-gray-500 text-sm mb-4 font-mono">
+                Tech: Node.js • Express • MongoDB • Bootstrap
+              </p>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all text-sm font-semibold uppercase tracking-wider">
+                  <span data-en="View Repo">View Repo</span>
+                  <span data-de="Repo ansehen" class="hidden">Repo ansehen</span>
+                </a>
+                <a href="#" class="px-4 py-2 verge-gradient hover:opacity-90 rounded-lg transition-all text-sm font-bold uppercase tracking-wider">
+                  <span data-en="Live Demo">Live Demo</span>
+                  <span data-de="Live-Demo" class="hidden">Live-Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-slide hidden grid lg:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-800/50 rounded-xl overflow-hidden border border-purple-500/10">
+              <img src="https://placehold.co/800x400?text=Project+2" 
+                   alt="Project 2" 
+                   class="w-full h-64 object-cover">
+            </div>
+            <div>
+              <h4 class="text-2xl font-bold text-white mb-3 uppercase tracking-tight">
+                <span data-en="Project 2 — Portfolio Web App">Project 2 — Portfolio Web App</span>
+                <span data-de="Projekt 2 — Portfolio-Web-App" class="hidden">Projekt 2 — Portfolio-Web-App</span>
+              </h4>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                <span data-en="A single-page portfolio built with React. Implements client-side routing, lazy-loading, and responsive layout.">
+                  A single-page portfolio built with React. Implements client-side routing, lazy-loading, and responsive layout.
+                </span>
+                <span data-de="Ein Single-Page-Portfolio mit React. Implementiert Client-Side-Routing, Lazy-Loading und responsives Layout." class="hidden">
+                  Ein Single-Page-Portfolio mit React. Implementiert Client-Side-Routing, Lazy-Loading und responsives Layout.
+                </span>
+              </p>
+              <p class="text-gray-500 text-sm mb-4 font-mono">
+                Tech: React • Vite • Tailwind
+              </p>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all text-sm font-semibold uppercase tracking-wider">
+                  <span data-en="View Repo">View Repo</span>
+                  <span data-de="Repo ansehen" class="hidden">Repo ansehen</span>
+                </a>
+                <a href="#" class="px-4 py-2 verge-gradient hover:opacity-90 rounded-lg transition-all text-sm font-bold uppercase tracking-wider">
+                  <span data-en="Live Demo">Live Demo</span>
+                  <span data-de="Live-Demo" class="hidden">Live-Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-slide hidden grid lg:grid-cols-2 gap-6 items-center">
+            <div class="bg-slate-800/50 rounded-xl overflow-hidden border border-purple-500/10">
+              <img src="https://placehold.co/800x400?text=Project+3" 
+                   alt="Project 3" 
+                   class="w-full h-64 object-cover">
+            </div>
+            <div>
+              <h4 class="text-2xl font-bold text-white mb-3 uppercase tracking-tight">
+                <span data-en="Project 3 — Data Dashboard">Project 3 — Data Dashboard</span>
+                <span data-de="Projekt 3 — Daten-Dashboard" class="hidden">Projekt 3 — Daten-Dashboard</span>
+              </h4>
+              <p class="text-gray-300 mb-4 leading-relaxed">
+                <span data-en="An analytics dashboard prototype using charts and APIs to visualize sensor data and metrics.">
+                  An analytics dashboard prototype using charts and APIs to visualize sensor data and metrics.
+                </span>
+                <span data-de="Ein Analyse-Dashboard-Prototyp mit Diagrammen und APIs zur Visualisierung von Sensordaten und Metriken." class="hidden">
+                  Ein Analyse-Dashboard-Prototyp mit Diagrammen und APIs zur Visualisierung von Sensordaten und Metriken.
+                </span>
+              </p>
+              <p class="text-gray-500 text-sm mb-4 font-mono">
+                Tech: Chart.js • Express • PostgreSQL
+              </p>
+              <div class="flex gap-3">
+                <a href="#" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all text-sm font-semibold uppercase tracking-wider">
+                  <span data-en="View Repo">View Repo</span>
+                  <span data-de="Repo ansehen" class="hidden">Repo ansehen</span>
+                </a>
+                <a href="#" class="px-4 py-2 verge-gradient hover:opacity-90 rounded-lg transition-all text-sm font-bold uppercase tracking-wider">
+                  <span data-en="Live Demo">Live Demo</span>
+                  <span data-de="Live-Demo" class="hidden">Live-Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Indicators -->
+        <div class="flex justify-center gap-2 mt-8">
+          <button class="project-indicator w-3 h-3 rounded-full bg-pink-500" data-index="0"></button>
+          <button class="project-indicator w-3 h-3 rounded-full bg-slate-600" data-index="1"></button>
+          <button class="project-indicator w-3 h-3 rounded-full bg-slate-600" data-index="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="mb-16">
+      <div class="bg-slate-900/50 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+        <h3 class="text-3xl font-black mb-8 verge-text-gradient uppercase tracking-tight">
+          <span data-en="Let's Connect">Let's Connect</span>
+          <span data-de="Lass uns verbinden" class="hidden">Lass uns verbinden</span>
+        </h3>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-xl font-bold mb-4 text-white uppercase tracking-wide">
+              <span data-en="Contact Info">Contact Info</span>
+              <span data-de="Kontaktinformationen" class="hidden">Kontaktinformationen</span>
+            </h4>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <i class="fa-regular fa-envelope text-pink-500 text-xl"></i>
+                <a href="mailto:amandebnath66@gmail.com" 
+                   class="text-gray-300 hover:text-pink-500 transition-colors">
+                  amandebnath66@gmail.com
+                </a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-linkedin text-pink-500 text-xl"></i>
+                <a href="https://www.linkedin.com/in/aman-debnath-665528161/" 
+                   target="_blank"
+                   class="text-gray-300 hover:text-pink-500 transition-colors">
+                  LinkedIn
+                </a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-brands fa-github text-pink-500 text-xl"></i>
+                <a href="https://github.com/amandebnath" 
+                   target="_blank"
+                   class="text-gray-300 hover:text-pink-500 transition-colors">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div>
+            <form id="contactForm" action="messages.html" method="post">
+              <div class="mb-4">
+                <label for="inputName" class="block text-gray-400 mb-2 font-semibold text-sm uppercase tracking-wider">
+                  <span data-en="Your Name">Your Name</span>
+                  <span data-de="Dein Name" class="hidden">Dein Name</span>
+                </label>
+                <input type="text" 
+                       id="inputName" 
+                       name="Name" 
+                       required
+                       class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 focus:border-pink-500 rounded-lg text-white outline-none transition-colors">
+              </div>
+              
+              <div class="mb-4">
+                <label for="inputEmail" class="block text-gray-400 mb-2 font-semibold text-sm uppercase tracking-wider">
+                  <span data-en="Email Address">Email Address</span>
+                  <span data-de="E-Mail-Adresse" class="hidden">E-Mail-Adresse</span>
+                </label>
+                <input type="email" 
+                       id="inputEmail" 
+                       name="email" 
+                       required
+                       class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 focus:border-pink-500 rounded-lg text-white outline-none transition-colors">
+              </div>
+              
+              <div class="mb-4">
+                <label for="inputMessage" class="block text-gray-400 mb-2 font-semibold text-sm uppercase tracking-wider">
+                  <span data-en="Message">Message</span>
+                  <span data-de="Nachricht" class="hidden">Nachricht</span>
+                </label>
+                <textarea id="inputMessage" 
+                          name="message" 
+                          rows="4"
+                          class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 focus:border-pink-500 rounded-lg text-white outline-none transition-colors resize-none"></textarea>
+              </div>
+              
+              <button type="submit" 
+                      class="w-full px-6 py-3 verge-gradient hover:opacity-90 rounded-lg transition-all font-bold text-sm uppercase tracking-wider shadow-lg shadow-pink-500/30 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span data-en="Send Message">Send Message</span>
+                <span data-de="Nachricht senden" class="hidden">Nachricht senden</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950/80 border-t border-purple-500/10 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-400 mb-2">
+        © Aman Debnath 2025 · 
+        <span data-en="Work Smart">Work Smart</span>
+        <span data-de="Arbeite smart" class="hidden">Arbeite smart</span>
+      </p>
+      <p class="text-gray-500 text-sm">
+        <span data-en="Built with Tailwind CSS">Built with Tailwind CSS</span>
+        <span data-de="Erstellt mit Tailwind CSS" class="hidden">Erstellt mit Tailwind CSS</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Language Toggle
+    let currentLang = 'en';
+    const langToggle = document.getElementById('langToggle');
+    const langToggleMobile = document.getElementById('langToggleMobile');
+    
+    function switchLanguage() {
+      currentLang = currentLang === 'en' ? 'de' : 'en';
+      
+      // Update button text
+      langToggle.textContent = currentLang === 'en' ? 'DE' : 'EN';
+      langToggleMobile.textContent = currentLang === 'en' ? 'DE' : 'EN';
+      
+      // Toggle content visibility
+      const enElements = document.querySelectorAll('[data-en]');
+      const deElements = document.querySelectorAll('[data-de]');
+      
+      enElements.forEach(el => {
+        if (currentLang === 'en') {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      
+      deElements.forEach(el => {
+        if (currentLang === 'de') {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = currentLang;
+    }
+    
+    langToggle.addEventListener('click', switchLanguage);
+    langToggleMobile.addEventListener('click', switchLanguage);
+    
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Project Carousel
+    let currentProject = 0;
+    const projectSlides = document.querySelectorAll('.project-slide');
+    const projectIndicators = document.querySelectorAll('.project-indicator');
+    const prevBtn = document.getElementById('prevProject');
+    const nextBtn = document.getElementById('nextProject');
+    
+    function showProject(index) {
+      projectSlides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('hidden');
+        } else {
+          slide.classList.add('hidden');
+        }
+      });
+      
+      projectIndicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.remove('bg-slate-600');
+          indicator.classList.add('bg-pink-500');
+        } else {
+          indicator.classList.remove('bg-pink-500');
+          indicator.classList.add('bg-slate-600');
+        }
+      });
+    }
+    
+    prevBtn.addEventListener('click', () => {
+      currentProject = (currentProject - 1 + projectSlides.length) % projectSlides.length;
+      showProject(currentProject);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      currentProject = (currentProject + 1) % projectSlides.length;
+      showProject(currentProject);
+    });
+    
+    projectIndicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentProject = index;
+        showProject(currentProject);
+      });
+    });
+    
+    // Form Validation
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      const name = document.getElementById('inputName').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      
+      if (!name || !email) {
+        e.preventDefault();
+        alert(currentLang === 'en' ? 'Please fill in all required fields.' : 'Bitte füllen Sie alle erforderlichen Felder aus.');
+      }
+    });
+    
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Animate skill bars on scroll
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+          skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 100);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      observer.observe(skillsSection);
+    }
+  </script>
+</body>
+</html>
