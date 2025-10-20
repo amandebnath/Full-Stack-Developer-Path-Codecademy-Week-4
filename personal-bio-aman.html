@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aman Debnath - Full Stack Engineer" />
+    <title>Aman Debnath | Full Stack Engineer</title>
+    <style>
+      * {
+        font-family: "Trebuchet MS", sans-serif;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TODO: Add header with your name, professional title, and navigation -->
+    <!-- Navigation should link to: #about, #skills, #contact -->
+    <header>
+      <h1 id="nametitle">Aman Debnath</h1>
+      <h2>Full Stack Engineer</h2>
+      <nav>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- TODO: Add main element -->
+    <main>
+      <!-- TODO: Add About section with id="about" -->
+      <!-- Include: h2 "About Me", professional photo with alt text, 2-3 paragraphs about yourself -->
+      <section id="about">
+        <img src="./assets/photo.jpg" alt="personal photo" width="150" />
+        <h2>About Me</h2>
+        <p>
+          I am a Mechanical Engineer transitioning into Full Stack Development,
+          driven by a passion for building impactful digital solutions. With a
+          strong foundation in problem-solving and critical thinking, I bring an
+          analytical mindset from engineering into software development. My
+          journey reflects adaptability, continuous learning, and a commitment
+          to mastering modern web technologies. I enjoy tackling complex
+          challenges, breaking them into simple solutions, and creating
+          user-friendly applications. Currently, I am honing my skills in full
+          stack development while preparing to contribute effectively in the
+          software engineering space.
+        </p>
+      </section>
+      <!-- TODO: Add Skills section with id="skills" -->
+      <!-- Include: h2 "Skills & Experience", multiple h3 categories with organized lists -->
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>JavaScript</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Python</li>
+          <li>GitHub</li>
+          <li>SQL</li>
+        </ul>
+      </section>
+      <!-- TODO: Add Contact section with id="contact" -->
+      <!-- Include: h2 "Let's Connect", social media links (email, LinkedIn, GitHub), and message form -->
+      <section id="contact">
+        <h2>Let's Connect</h2>
+        <ul>
+          <li>
+            E-mail:
+            <a href="mailto:amandebnath66@gmail.com" target="_blank"
+              >amandebnath66@gmail.com</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/aman-debnath-665528161/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/amandebnath" target="_blank">GitHub</a>
+          </li>
+        </ul>
+        <!-- Form should have: name, email, message fields and submit button -->
+        <form action="messages.html" method="post">
+          <h2>Feel free to reach out:</h2>
+          <label for="Name">What is your name?</label>
+          <br />
+          <input type="text" name="Name" id="Name" required />
+          <br />
+          <label for="email">Email Address:</label>
+          <br />
+          <input type="text" name="email" id="email" required />
+          <br />
+          <label for="message">Message:</label>
+          <br />
+          <textarea name="message" id="message"></textarea>
+          <br />
+          <input type="submit" value="Send" />
+        </form>
+      </section>
+      <!-- TODO: Close main element -->
+    </main>
+    <!-- TODO: Add footer with copyright and personal tagline -->
+    <footer><h4>&copy; Aman Debnath 2025 | Work Smart</h4></footer>
+  </body>
+</html>
